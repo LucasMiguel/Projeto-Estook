@@ -1,9 +1,9 @@
 
-ROM used:   900/32768 (3%)
-            900/32768 (3%) including unused fragments
+ROM used:   980/32768 (3%)
+            980/32768 (3%) including unused fragments
 
             0.5 Average locations per line
-            3.4 Average locations per statement
+            3.6 Average locations per statement
 
 RAM used:   6/2048 (0%) at main() level
             19/2048 (1%) worst case
@@ -13,55 +13,56 @@ Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   45    19   7  main.c
+   47    20   7  main.c
   837     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
-  456   100  38  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+  456   100  37  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
    37     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h
-  423   125  48  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
+  423   125  46  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
    32     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
    28     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
-   22    17   7  functions.h
+   52    28  10  functions.h
 ----- -----
- 1880   261 Total
+ 1912   273 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     38   2    1             @delay_ms1
-0     64   4    3   760  4.5  lcd_read_byte
+0     64   3    3   760  4.5  lcd_read_byte
 0     74   4    2   262  3.7  lcd_read_nibble
 0     52   3    1   399  2.4  lcd_send_nibble
 0     62   3    3   415  3.7  lcd_send_byte
-0    122   7    6   852  6.2  lcd_init
+0    122   6    6   852  6.2  lcd_init
 0     34   2    4   208  6.3  lcd_gotoxy
 0     80   4    1   354  4.7  lcd_putc
-0    172  10    1   434  1.9  Start
+0    172   9    1   434  1.9  Start
 0     14   1    0             @const778
 0     32   2    2             @PSTRINGC_670
 0      2   0    0             @const780
 0      2   0    0             @const781
 0      2   0    0             @const782
 0     18   1    0             @const783
-0    106   6    0   365  3.2  MAIN
-0     10   1    0             @const787
-0     12   1    0   863  3.3  @const788
+0     78   4    1   262  3.2  Lamps
+0    108   6    0   383  3.2  MAIN
+0     10   1    0             @const790
+0     12   1    0             @const791
  Inline         0             @cinit1
 
 Program metrics:
     Functions               10
-    Statements              261
-    Comments                461
-    Volume (V)              7700
-    Difficulty (D)          38.2
-    Effort to implement (E) 294109
-    Time to implement (T)   4 hours, 32 minutes
+    Statements              273
+    Comments                473
+    Volume (V)              6856
+    Difficulty (D)          38.1
+    Effort to implement (E) 260967
+    Time to implement (T)   4 hours, 2 minutes
     Est Delivered Bugs (B)  1
-    Cyclomatic Complexity   12
-    Maintainability (MI)    39
+    Cyclomatic Complexity   11
+    Maintainability (MI)    36
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE   896  31868  
+00004-07FFE   976  31788  
 
 
 

@@ -31,9 +31,9 @@ void main()
          if(input(pin_B6)){            
                lcd_putc('\f');                                // Clear LCD
                lcd_putc("Iniciado");    
-               output_high(pin_C5);                
+               output_high(pin_B7);                
                Lamps();                                       // Função para mover as lampadas
-              //PassadorPag();
+               PassadorPag();
          }else{            
                lcd_putc('\f');                                // Clear LCD
                lcd_putc("Fecha Porta");                           

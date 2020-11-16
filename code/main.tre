@@ -1,5 +1,5 @@
 ÀÄmain
-   ÀÄMAIN  0/106  Ram=0
+   ÀÄMAIN  0/108  Ram=0
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄStart  0/172  Ram=1
       ³  ÃÄlcd_init  0/122  Ram=6
@@ -60,6 +60,12 @@
       ³  ÀÄ*
       ÃÄ@PSTRINGC_670  0/32  Ram=2
       ³  ÀÄ*
+      ÃÄLamps  0/78  Ram=1
+      ³  ÃÄ@delay_ms1  0/38  Ram=1
+      ³  ÃÄ@delay_ms1  0/38  Ram=1
+      ³  ÃÄ@delay_ms1  0/38  Ram=1
+      ³  ÃÄ@delay_ms1  0/38  Ram=1
+      ³  ÀÄ@delay_ms1  0/38  Ram=1
       ÃÄlcd_putc  0/80  Ram=1
       ³  ÀÄ*
       ÃÄ@PSTRINGC_670  0/32  Ram=2

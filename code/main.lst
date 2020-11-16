@@ -1,16 +1,16 @@
-CCS PCH C Compiler, Version 5.015, 5967               14-nov-20 21:01
+CCS PCH C Compiler, Version 5.015, 5967               15-nov-20 22:13
 
                Filename:   C:\Users\lucas\Documents\Faculdade\2-2020\Projeto interdiciplinar\Programação\Projeto\code\main.lst
 
-               ROM used:   900 bytes (3%)
-                           Largest free fragment is 31868
+               ROM used:   980 bytes (3%)
+                           Largest free fragment is 31788
                RAM used:   6 (0%) at main() level
                            19 (1%) worst case
                Stack used: 7 locations
                Stack size: 31
 
 *
-0000:  GOTO   031A
+0000:  GOTO   0368
 .................... //LCD module connections 
 .................... #define LCD_RS_PIN PIN_D0 
 .................... #define LCD_RW_PIN PIN_D1 
@@ -1424,87 +1424,158 @@ CCS PCH C Compiler, Version 5.015, 5967               14-nov-20 21:01
 0310:  MOVLW  00
 0312:  MOVWF  FF7
 0314:  RCALL  024E
-0316:  GOTO   0342 (RETURN)
+0316:  GOTO   0390 (RETURN)
+.................... } 
+....................  
+.................... void Lamps(){ 
+....................    for(int i=0; i<3; i++){ 
+031A:  CLRF   06
+031C:  MOVF   06,W
+031E:  SUBLW  02
+0320:  BNC   0356
+....................       output_c(0b00010011); 
+0322:  CLRF   F94
+0324:  MOVLW  13
+0326:  MOVWF  F8B
+....................       delay_ms(100); 
+0328:  MOVLW  64
+032A:  MOVWF  0B
+032C:  RCALL  0040
+....................       output_c(0b00010110); 
+032E:  CLRF   F94
+0330:  MOVLW  16
+0332:  MOVWF  F8B
+....................       delay_ms(100); 
+0334:  MOVLW  64
+0336:  MOVWF  0B
+0338:  RCALL  0040
+....................       output_c(0b00011100); 
+033A:  CLRF   F94
+033C:  MOVLW  1C
+033E:  MOVWF  F8B
+....................       delay_ms(100); 
+0340:  MOVLW  64
+0342:  MOVWF  0B
+0344:  RCALL  0040
+....................       output_c(0b00011001); 
+0346:  CLRF   F94
+0348:  MOVLW  19
+034A:  MOVWF  F8B
+....................       delay_ms(100); 
+034C:  MOVLW  64
+034E:  MOVWF  0B
+0350:  RCALL  0040
+0352:  INCF   06,F
+0354:  BRA    031C
+....................    }    
+....................    delay_ms(1000); 
+0356:  MOVLW  04
+0358:  MOVWF  07
+035A:  MOVLW  FA
+035C:  MOVWF  0B
+035E:  RCALL  0040
+0360:  DECFSZ 07,F
+0362:  BRA    035A
+0364:  GOTO   03B8 (RETURN)
+....................    /*for(int j=0; j<3; j++){       
+....................       output_c(0b00001100); 
+....................       delay_ms(100); 
+....................       output_c(0b00000110); 
+....................       delay_ms(100); 
+....................       output_c(0b00000011); 
+....................       delay_ms(100); 
+....................       output_c(0b00001001); 
+....................       delay_ms(100); 
+....................    } */   
+.................... } 
+....................  
+.................... void PassadorPag(){ 
+....................     
+....................  
+....................  
 .................... } 
 ....................  
 ....................  
 ....................  
 .................... void main() 
-031A:  CLRF   FF8
-031C:  BCF    FD0.7
-031E:  MOVLW  70
-0320:  MOVWF  FD3
-0322:  MOVF   FD3,W
-0324:  MOVF   FC1,W
-0326:  ANDLW  C0
-0328:  IORLW  0F
-032A:  MOVWF  FC1
-032C:  MOVLW  07
-032E:  MOVWF  FB4
-0330:  CLRF   04
-0332:  CLRF   05
+0368:  CLRF   FF8
+036A:  BCF    FD0.7
+036C:  MOVLW  70
+036E:  MOVWF  FD3
+0370:  MOVF   FD3,W
+0372:  MOVF   FC1,W
+0374:  ANDLW  C0
+0376:  IORLW  0F
+0378:  MOVWF  FC1
+037A:  MOVLW  07
+037C:  MOVWF  FB4
+037E:  CLRF   04
+0380:  CLRF   05
 .................... { 
 ....................    output_b(0);     
-0334:  CLRF   F8A
+0382:  CLRF   F8A
 ....................    output_d(0);  
-0336:  CLRF   F8C
+0384:  CLRF   F8C
 ....................    output_c(0);     
-0338:  CLRF   F94
-033A:  CLRF   F8B
+0386:  CLRF   F94
+0388:  CLRF   F8B
 ....................    set_tris_c(0);  
-033C:  MOVLW  00
-033E:  MOVWF  F94
+038A:  MOVLW  00
+038C:  MOVWF  F94
 ....................    Start(); 
-0340:  BRA    026E
+038E:  BRA    026E
 ....................    while(TRUE){ 
-....................       if(input(pin_B0)){ 
-0342:  BTFSS  F81.0
-0344:  BRA    037A
+....................       if(input(pin_B5)){ 
+0390:  BTFSS  F81.5
+0392:  BRA    03CA
 ....................          lcd_gotoxy(4, 2); 
-0346:  MOVLW  04
-0348:  MOVWF  09
-034A:  MOVLW  02
-034C:  MOVWF  0A
-034E:  RCALL  01DC
-....................          if(input(pin_B1)){             
-0350:  BTFSS  F81.1
-0352:  BRA    036A
+0394:  MOVLW  04
+0396:  MOVWF  09
+0398:  MOVLW  02
+039A:  MOVWF  0A
+039C:  RCALL  01DC
+....................          if(input(pin_B6)){             
+039E:  BTFSS  F81.6
+03A0:  BRA    03BA
 ....................                lcd_putc('\f');                                // Clear LCD 
-0354:  MOVLW  0C
-0356:  MOVWF  08
-0358:  RCALL  01FE
+03A2:  MOVLW  0C
+03A4:  MOVWF  08
+03A6:  RCALL  01FE
 ....................                lcd_putc("Iniciado");     
-035A:  MOVLW  2A
-035C:  MOVWF  FF6
-035E:  MOVLW  00
-0360:  MOVWF  FF7
-0362:  RCALL  024E
-....................                output_high(pin_C5); 
-0364:  BCF    F94.5
-0366:  BSF    F8B.5
+03A8:  MOVLW  2A
+03AA:  MOVWF  FF6
+03AC:  MOVLW  00
+03AE:  MOVWF  FF7
+03B0:  RCALL  024E
+....................                output_high(pin_C5);                 
+03B2:  BCF    F94.5
+03B4:  BSF    F8B.5
+....................                Lamps();                                       // Função para mover as lampadas 
+03B6:  BRA    031A
+....................               //PassadorPag(); 
 ....................          }else{             
-0368:  BRA    037A
+03B8:  BRA    03CA
 ....................                lcd_putc('\f');                                // Clear LCD 
-036A:  MOVLW  0C
-036C:  MOVWF  08
-036E:  RCALL  01FE
+03BA:  MOVLW  0C
+03BC:  MOVWF  08
+03BE:  RCALL  01FE
 ....................                lcd_putc("Fecha Porta");                            
-0370:  MOVLW  34
-0372:  MOVWF  FF6
-0374:  MOVLW  00
-0376:  MOVWF  FF7
-0378:  RCALL  024E
+03C0:  MOVLW  34
+03C2:  MOVWF  FF6
+03C4:  MOVLW  00
+03C6:  MOVWF  FF7
+03C8:  RCALL  024E
 ....................          } 
 ....................       } 
 ....................       delay_ms(200); 
-037A:  MOVLW  C8
-037C:  MOVWF  0B
-037E:  RCALL  0040
-0380:  BRA    0342
+03CA:  MOVLW  C8
+03CC:  MOVWF  0B
+03CE:  RCALL  0040
+03D0:  BRA    0390
 ....................    } 
 .................... } 
 ....................  
-0382:  SLEEP 
+03D2:  SLEEP 
 ....................  
 
 Configuration Fuses:

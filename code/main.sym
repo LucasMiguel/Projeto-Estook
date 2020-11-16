@@ -5,23 +5,25 @@
 003     @SCRATCH
 004-005 strtok.save
 006     lcd_init.i
+006     Lamps.i
 006     Start.@SCRATCH1
 006     @PSTRINGC_670.@SCRATCH1
 007-00A lcd_init.LCD_INIT_STRING
 007     @PSTRINGC_670.@SCRATCH2
+007     Lamps.@SCRATCH1
 008     lcd_putc.c
 009     lcd_gotoxy.x
 00A     lcd_gotoxy.y
-00B     lcd_gotoxy.address
 00B     @delay_ms1.P1
+00B     lcd_gotoxy.address
 00B     lcd_init.@SCRATCH1
 00C     lcd_gotoxy.@SCRATCH1
 00D     lcd_send_byte.address
 00E     lcd_send_byte.n
 00F     lcd_read_byte.low
 00F     lcd_send_byte.@SCRATCH1
-010     lcd_send_nibble.n
 010     lcd_read_byte.high
+010     lcd_send_nibble.n
 011     lcd_read_nibble.n
 011     lcd_read_byte.@SCRATCH1
 012     lcd_read_nibble.@SCRATCH1
@@ -36,12 +38,12 @@ FBE     CCP_1
 FBF     CCP_1_HIGH
 FE1-FE2 @READ_PACKED_MEMORY.P1
 FE1-FE2 @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P1
-FE9-FEA @READ_PROGRAM_MEMORY.P2
-FE9-FEA @WRITE_PACKED_MEMORY.P3
-FE9-FEA @READ_PACKED_MEMORY.P4
-FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
-FF6-FF8 @READ_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
 
 ROM Allocation:
 000004  @const778.call
@@ -49,8 +51,8 @@ ROM Allocation:
 000014  @const781.call
 000016  @const782.call
 000018  @const783.call
-00002A  @const787.call
-000034  @const788.call
+00002A  @const790.call
+000034  @const791.call
 000040  @delay_ms1
 000066  lcd_send_nibble
 00009A  lcd_read_nibble
@@ -61,24 +63,25 @@ ROM Allocation:
 0001FE  lcd_putc
 00024E  @PSTRINGC_670
 00026E  Start
-00031A  MAIN
-00031A  @cinit1
-000330  @cinit2
+00031A  Lamps
+000368  @cinit1
+000368  MAIN
+00037E  @cinit2
 
 Project Directory:
     C:\Users\lucas\Documents\Faculdade\2-2020\Projeto interdiciplinar\Programação\Projeto\code\
 
 Project Files:
-    main.c                                                  [14-nov-20 21:01  CRC=0FB76ACD]
+    main.c                                                  [15-nov-20 22:10  CRC=6CE2F720]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 14:35  CRC=5337E248]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-set-13 15:38  CRC=D1A6378A]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h [31-jul-07 13:24  CRC=4E4534F4]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [14-jul-11 10:13  CRC=23EDEC8F]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-jul-10 09:27  CRC=897CEC6C]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-jan-08 13:55  CRC=2D1F019F]
-    functions.h                                             [14-nov-20 20:46  CRC=943AF00B]
+    functions.h                                             [15-nov-20 22:12  CRC=45D5EAE2]
 
-Source signature=85DA7443
+Source signature=463BF644
 
 Units:
     main (main)
