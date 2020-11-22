@@ -1,7 +1,8 @@
+D G "strcopy" 4 54 "strcpy"
 D G "__PCH__" 0 48 ""5.015""
 D G "__DEVICE__" 0 48 "4550"
-D G "__DATE__" 0 48 ""15-nov-20""
-D G "__TIME__" 0 48 ""22:13:00"" "LCD module connections"
+D G "__DATE__" 0 48 ""22-nov-20""
+D G "__TIME__" 0 48 ""17:07:43"" "LCD module connections"
 D G "LCD_RS_PIN" 0 2 "PIN_D0"
 D G "LCD_RW_PIN" 0 3 "PIN_D1"
 D G "LCD_ENABLE_PIN" 0 4 "PIN_D2"
@@ -1118,13 +1119,14 @@ C L "Start" 7 1 1 "FUNCTION"
 C L "Start" 7 1 1 "FUNCTION"
 C L "Start" 7 1 1 "FUNCTION"
 F G "Lamps" 7 22 "void()" `784 
-V L "i" 7 23 "int8" `785 
-C L "Lamps" 7 1 10 "FUNCTION"
-F G "PassadorPag" 7 46 "void()" `786 
-F G "MAIN" 0 22 "void()" `787 
-C L "MAIN" 0 32 1 "FUNCTION"
-C L "MAIN" 0 32 2 "FUNCTION"
-C L "MAIN" 0 32 1 "FUNCTION"
+V L "speed_" 7 23 "int8" `785 
+V L "i" 7 29 "int8" `787 
+F G "PassadorPag" 7 79 "void()" `789 
+V L "speed_" 7 80 "int8" `790 
+F G "MAIN" 0 23 "void()" `792  "output_b(0);"
+C L "MAIN" 0 33 1 "FUNCTION"
+C L "MAIN" 0 33 2 "FUNCTION"
+C L "MAIN" 0 33 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1

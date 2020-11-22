@@ -14,28 +14,28 @@
 #use delay(clock = 8000000)
 #use fast_io(B)
 #use fast_io(D)
+#use fast_io(C)
 #include <lcd.c>
 #include <stdio.h>
 #include <functions.h>
 
 void main()
 {
-   output_b(0);    
+   //output_b(0);    
    output_d(0); 
    output_c(0);    
-   set_tris_c(0); 
+   set_tris_c(0);    
    Start();
    while(TRUE){
       if(input(pin_B5)){
          lcd_gotoxy(4, 2);
          if(input(pin_B6)){            
                lcd_putc('\f');                                // Clear LCD
-               lcd_putc("Iniciado");    
-               output_high(pin_C5);                
-               Lamps();                                       // Função para mover as lampadas
-              //PassadorPag();
-         }else{            
-               lcd_putc('\f');                                // Clear LCD
+               lcd_putc("Iniciado");                          // E já liga a lâmpada enquanto a porta está fechada   
+               //Lamps();
+               PassadorPag();
+         }else{                                               //Teste para as portas fechadas 
+               lcd_putc('\f');                                
                lcd_putc("Fecha Porta");                           
          }
       }

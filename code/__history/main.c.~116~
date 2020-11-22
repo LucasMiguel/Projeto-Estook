@@ -1,0 +1,107 @@
+//LCD module connections
+#define LCD_RS_PIN PIN_D0
+#define LCD_RW_PIN PIN_D1
+#define LCD_ENABLE_PIN PIN_D2
+#define LCD_DATA4 PIN_D3
+#define LCD_DATA5 PIN_D4
+#define LCD_DATA6 PIN_D5
+#define LCD_DATA7 PIN_D6
+//End LCD module connections
+
+#include <18F4550.h>
+#fuses NOMCLR NOBROWNOUT NOLVP INTRC_IO
+#device ADC = 10
+#use delay(clock = 8000000)
+#use fast_io(B)
+#use fast_io(D)
+#include <lcd.c>
+#include <stdio.h>
+#include <functions.h>
+
+
+char WaveStep[] = {4, 0b0001, 0b0010, 0b0100, 0b1000};
+char FullStep[] = {4, 0b0011, 0b0110, 0b1100, 0b1001};
+char HalfStep[] = {8, 0b0001, 0b0011, 0b0010, 0b0110, 0b00100, 0b1100, 0b1000, 0b1001};
+
+//configuração do Motor de passo
+//Configura os pinos de saida
+sbit Pin1 at RB0_bit;
+sbit Pin2 at RB1_bit;
+sbit Pin3 at RB2_bit;
+sbit Pin4 at RB3_bit;
+//Configura a direção dos pinos
+sbit Pin1_Direction at TRISB0_bit;
+sbit Pin2_Direction at TRISB1_bit;
+sbit Pin3_Direction at TRISB2_bit;
+sbit Pin4_Direction at TRISB3_bit;
+
+unsigned int delay = 0;
+char *type;
+#define LEFT 1
+#define RIGHT 0
+
+void Stepper_setSequence(char *type_)
+{
+ Pin1_Direction = 0;
+ Pin2_Direction = 0;
+ Pin3_Direction = 0;
+ Pin4_Direction = 0;
+ type = type_;
+}
+
+void Stepper_Speed(unsigned nSteps, char rpm)
+{
+   delay = 60000 / (nSteps * rpm);
+}
+
+void Stepper_Step(char direcao)
+{
+static unsigned stepCount = 0;
+char len = type[0];
+char val = type[(stepCount % len) + 1];
+
+    if(direcao == 0)
+     stepCount++;
+    else
+     stepCount--;
+
+    Pin4 = val.F3;
+    Pin3 = val.F2;
+    Pin2 = val.F1;
+    Pin1 = val.F0;
+    
+    VDelay_ms(delay);
+}
+
+void main()
+{
+   //output_b(0);    
+   output_d(0); 
+   output_c(0);    
+   set_tris_c(0);    
+   Start();
+   while(TRUE){
+      if(input(pin_B5)){
+         lcd_gotoxy(4, 2);
+         if(input(pin_B6)){            
+               lcd_putc('\f');                                // Clear LCD
+               lcd_putc("Iniciado");                     // E já liga a lâmpada enquanto a porta está fechada
+               Stepper_Speed(72, 3);
+               Stepper_setSequence(WaveStep);
+               while(1){
+                     Stepper_Step(LEFT); //move um passo para a direita
+               }
+               /*while(1){
+                  Lamps();                              // Função para mover as lampadas
+               } */                                      
+              //PassadorPag();
+         }else{                                               //Teste para as portas fechadas 
+               lcd_putc('\f');                                
+               lcd_putc("Fecha Porta");                           
+         }
+      }
+      delay_ms(200);
+   }
+}
+
+
