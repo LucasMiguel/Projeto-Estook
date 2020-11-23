@@ -82,10 +82,10 @@ void Lamps(){
 //Função que irá passar as páginas ===============================================================
 void PassadorPag(){
    unsigned int8 speed_ = 1000;           //Velocidade dos motores
-   LCD_Goto(2, 2);  
+   /*LCD_Goto(2, 2);  
    LCD_Out("                    ");                //Limpara o display
    LCD_Goto(2, 2);  
-   LCD_Out("Passando pagina"); 
+   LCD_Out("Passando pagina"); */
    for(;;){                               //Haste principal irá para a frente até encostar no livro
       output_a(0b00000110);
       delay_ms(speed_);
@@ -119,25 +119,17 @@ void PassadorPag(){
    }
    delay_ms(1000);                        
    output_low(pin_B2);                    //Desliga a FAN do Passador
-   delay_ms(1000);  
-                                 //Faz a haste secundária sair da pagina
-   output_d(0b00000001);
-   delay_ms(speed_);
-   output_d(0b00000011);
-   delay_ms(speed_);
-   output_d(0b00000010);
-   delay_ms(2000);  
-   //Faz a Haste primaria ficar na vertical
-   output_a(0b00000110);
-   delay_ms(speed_);   
-   output_a(0b00000101);
-   delay_ms(speed_);
-   //Faz a haste secudária voltar para a posição original
-   output_d(0b00000011);      
-   delay_ms(speed_);
-   output_d(0b00000001);
-   delay_ms(speed_);        
-
+   delay_ms(1000);   
+   for(;;){                               //Faz a haste secundária sair da pagina
+      output_d(0b00000110);
+      delay_ms(speed_);      
+      output_d(0b00000101);
+      delay_ms(speed_);      
+      output_d(0b00001001);
+      delay_ms(speed_);      
+      output_d(0b00001010);
+      delay_ms(speed_);
+   }
       
 }
 

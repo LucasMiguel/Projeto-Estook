@@ -1,7 +1,8 @@
+D G "LCD_TYPE" 7 24 "2" "0=5x7, 1=5x10, 2=2 lines"
 D G "__PCH__" 0 52 ""5.015""
 D G "__DEVICE__" 0 52 "4550"
-D G "__DATE__" 0 52 ""22-nov-20""
-D G "__TIME__" 0 52 ""22:55:37"" "LCD module connections"
+D G "__DATE__" 0 52 ""23-nov-20""
+D G "__TIME__" 0 52 ""00:14:07"" "LCD module connections"
 D G "LCD_RS_PIN" 0 2 "PIN_D0"
 D G "LCD_RW_PIN" 0 3 "PIN_D1"
 D G "LCD_ENABLE_PIN" 0 4 "PIN_D2"
@@ -1129,19 +1130,13 @@ C L "Lamps" 6 2 1 "FUNCTION"
 C L "PassadorPag" 6 2 1 "FUNCTION"
 F G "PassadorPag" 6 83 "void()" `778 
 V L "speed_" 6 84 "int8" `779 
+C L "PassadorPag" 6 2 38 "FUNCTION"
 C L "PassadorPag" 6 2 1 "FUNCTION"
 C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-C L "PassadorPag" 6 2 1 "FUNCTION"
-F G "MAIN" 0 24 "void()" `781 
+F G "MAIN" 0 24 "void()" `780 
 C L "MAIN" 0 28 1 "FUNCTION"
 C L "MAIN" 0 28 1 "FUNCTION"
-C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 5 "FUNCTION"
 C L "MAIN" 0 28 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0

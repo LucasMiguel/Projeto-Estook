@@ -1,72 +1,65 @@
 
-ROM used:   1164/32768 (4%)
-            1164/32768 (4%) including unused fragments
+ROM used:   632/32768 (2%)
+            632/32768 (2%) including unused fragments
 
-            0.7 Average locations per line
-            3.7 Average locations per statement
+            0.4 Average locations per line
+            2.3 Average locations per statement
 
 RAM used:   9/2048 (0%) at main() level
-            20/2048 (1%) worst case
+            17/2048 (1%) worst case
 
-Stack used: 6 worst case (6 in main + 0 for interrupts)
+Stack used: 5 worst case (5 in main + 0 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   50    20   6  main.c
+   51    16   6  main.c
   837     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
    37     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h
-  423   125  40  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
+  423   125  45  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
    32     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
    28     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
-  124   119  38  functions.h
-  115    47  15  I2C_LCD.c
+  144    88  32  functions.h
+  115    47  17  I2C_LCD.c
 ----- -----
- 1646   311 Total
+ 1667   276 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     38   2    1             @delay_ms1
-0     80   3    1             @I2C_WRITE_1
-0     50   2    2   153  2.7  LCD_Write_Nibble
-0     32   1    2   104  2.6  LCD_Cmd
-0     72   3    3   323  5.5  LCD_Goto
-0     34   1    2   104  2.6  LCD_Out
-0    114   5    1   502  2.9  LCD_Begin
-0     58   2    2   117  2.3  Expander_Write
-0    176   8    1   428  1.9  Start
+0     38   3    1             @delay_ms1
+0     80   6    1             @I2C_WRITE_1
+0     50   4    2   153  2.7  LCD_Write_Nibble
+0     32   3    2   104  2.6  LCD_Cmd
+0    114   9    1   502  2.9  LCD_Begin
+0     58   5    2   117  2.3  Expander_Write
 0     14   1    0    33  1.3  @const765
-0     32   1    2   117  2.3  @PSTRINGC_756
 0      2   0    0   410  3.2  @const767
 0      2   0    0  1172  3.1  @const768
 0      2   0    0             @const769
-0     22   1    0             @const770
+0     22   2    0             @const770
 0     18   1    0    61  1.4  @const771
-0     22   1    0  1347  4.9  @const773
+0     22   2    0  1347  4.9  @const773
 0     12   1    0  1347  4.9  @const774
-0    224  10    2  1119  3.8  PassadorPag
-0     16   1    0   357  3.2  @const780
-0    108   5    0   396  3.2  MAIN
-0     22   1    0             @const784
-0     10   0    0             @const785
- Inline         0             @cinit1
+0     90   7    2   336  1.9  PassadorPag
+0     72   6    0   270  2.8  MAIN
+ Inline         0   396  3.2  @cinit1
 
 Program metrics:
-    Functions               17
-    Statements              311
-    Comments                384
-    Volume (V)              13129
-    Difficulty (D)          51.6
-    Effort to implement (E) 677246
-    Time to implement (T)   10 hours, 27 minutes
-    Est Delivered Bugs (B)  3
-    Cyclomatic Complexity   56
-    Maintainability (MI)    133
+    Functions               13
+    Statements              276
+    Comments                421
+    Volume (V)              9701
+    Difficulty (D)          37.3
+    Effort to implement (E) 361990
+    Time to implement (T)   5 hours, 35 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   42
+    Maintainability (MI)    115
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
-00004-07FFE  1160  31604  
+00004-07FFE   628  32136  
 
 
 

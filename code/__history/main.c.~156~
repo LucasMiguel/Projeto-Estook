@@ -15,7 +15,7 @@
 #use fast_io(B)
 #use fast_io(D)
 #use fast_io(C)
-#use I2C(master, sda=PIN_b0, scl=PIN_b1, ADDRESS = 0X01, FAST =100000, STREAM = I2C_LCD)
+#use I2C(master, sda=PIN_b0, scl=PIN_b1, ADDRESS = 0X01, FAST =250000, STREAM = I2C_LCD)
 #include <stdio.h>
 #include <functions.h> //Biblioteca auxiliar com todas as funções de comando
 

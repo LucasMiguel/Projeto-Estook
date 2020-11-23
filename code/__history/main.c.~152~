@@ -15,7 +15,7 @@
 #use fast_io(B)
 #use fast_io(D)
 #use fast_io(C)
-#use I2C(master, sda=PIN_b0, scl=PIN_b1, ADDRESS = 0X01, FAST =100000, STREAM = I2C_LCD)
+#use I2C(master, sda=PIN_b0, scl=PIN_b1, ADDRESS = 0X01, FAST = 100000, STREAM = I2C_LCD)
 #include <stdio.h>
 #include <functions.h> //Biblioteca auxiliar com todas as funções de comando
 
@@ -27,16 +27,16 @@ void main()
    output_c(0); 
    set_tris_b(0b1111000); //setando as portas como 1=input || 0=output
    set_tris_c(0); 
-   set_tris_d(0); 
    LCD_Begin(0x4E); 
-   //Start();
+   Start();
    while(TRUE){
       if(input(pin_B5)){         
          if(input(pin_B6)){                 
                //LCD_Goto(2,2);
-               //LCD_Out("                    ");                //Limpara o display               
-               //LCD_Goto(2,2);
-               //LCD_Out("Iniciado");
+               //LCD_Out("                    ");                //Limpara o display
+               LCD_Cmd(LCD_CLEAR);
+               LCD_Goto(2,2);
+               LCD_Out("Iniciado");
                //Lamps();
                PassadorPag();
          }else{                                               //Teste para as portas fechadas 

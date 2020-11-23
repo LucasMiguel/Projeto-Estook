@@ -27,7 +27,7 @@ void main()
    output_c(0); 
    set_tris_b(0b1111000); //setando as portas como 1=input || 0=output
    set_tris_c(0); 
-   set_tris_d(0); 
+   set_tris_d(0b1111000); 
    LCD_Begin(0x4E); 
    //Start();
    while(TRUE){

@@ -1,5 +1,5 @@
 ÀÄmain
-   ÀÄMAIN  0/108  Ram=0
+   ÀÄMAIN  0/72  Ram=0
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄLCD_Begin  0/114  Ram=1
       ³  ÃÄExpander_Write  0/58  Ram=2
@@ -38,66 +38,7 @@
       ³  ÃÄLCD_Cmd  0/32  Ram=2
       ³  ³  ÀÄ*
       ³  ÀÄ@delay_ms1  0/38  Ram=1
-      ÃÄStart  0/176  Ram=1
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÃÄLCD_Cmd  0/32  Ram=2
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÃÄLCD_Cmd  0/32  Ram=2
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÃÄLCD_Cmd  0/32  Ram=2
-      ³  ³  ³  ÀÄ*
-      ³  ³  ÀÄLCD_Cmd  0/32  Ram=2
-      ³  ³     ÀÄ*
-      ³  ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ³  ÀÄLCD_Out  0/34  Ram=2
-      ³  ³     ÃÄLCD_Write_Nibble  0/50  Ram=2
-      ³  ³     ³  ÀÄ*
-      ³  ³     ÀÄLCD_Write_Nibble  0/50  Ram=2
-      ³  ³        ÀÄ*
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÀÄ*
-      ³  ÀÄ@PSTRINGC_756  0/32  Ram=2
-      ³     ÀÄ*
-      ÃÄLCD_Goto  0/72  Ram=3
-      ³  ÀÄ*
-      ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ÀÄ*
-      ÃÄLCD_Goto  0/72  Ram=3
-      ³  ÀÄ*
-      ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ÀÄ*
-      ÃÄPassadorPag  0/224  Ram=2
-      ³  ÃÄLCD_Cmd  0/32  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄLCD_Goto  0/72  Ram=3
-      ³  ³  ÀÄ*
-      ³  ÃÄ@PSTRINGC_756  0/32  Ram=2
-      ³  ³  ÀÄ*
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
-      ³  ÃÄ@delay_ms1  0/38  Ram=1
+      ÃÄPassadorPag  0/90  Ram=2
       ³  ÃÄ@delay_ms1  0/38  Ram=1
       ³  ÃÄ@delay_ms1  0/38  Ram=1
       ³  ÃÄ@delay_ms1  0/38  Ram=1
