@@ -9,34 +9,37 @@
 //End LCD module connections
 
 #include <18F4550.h>
-#fuses NOMCLR NOBROWNOUT NOLVP INTRC_IO
+#fuses NOMCLR NOBROWNOUT NOLVP INTRC_IO 
 #device ADC = 10
 #use delay(clock = 8000000)
 #use fast_io(B)
 #use fast_io(D)
 #use fast_io(C)
-#include <lcd.c>
+#use I2C(master, sda=PIN_b0, scl=PIN_b1, ADDRESS = 0X01, FAST = 100000, STREAM = I2C_LCD)
 #include <stdio.h>
-#include <functions.h>
+#include <functions.h> //Biblioteca auxiliar com todas as funções de comando
+
 
 void main()
 {
-   //output_b(0);    
+   output_b(0);    
    output_d(0); 
-   output_c(0);    
-   set_tris_c(0);    
+   output_c(0); 
+   set_tris_b(0b1111000); //setando as portas como 1=input || 0=output
+   set_tris_c(0); 
+   LCD_Begin(0x4E); 
    Start();
    while(TRUE){
-      if(input(pin_B5)){
-         lcd_gotoxy(4, 2);
-         if(input(pin_B6)){            
-               lcd_putc('\f');                                // Clear LCD
-               lcd_putc("Iniciado");                          // E já liga a lâmpada enquanto a porta está fechada   
+      if(input(pin_B5)){         
+         if(input(pin_B6)){                 
+               LCD_Goto(2,2);
+               LCD_Out("                    ");                //Limpara o display   
+               LCD_Goto(2,2);
+               LCD_Out("Iniciado");
                //Lamps();
                PassadorPag();
          }else{                                               //Teste para as portas fechadas 
-               lcd_putc('\f');                                
-               lcd_putc("Fecha Porta");                           
+                                          
          }
       }
       delay_ms(200);

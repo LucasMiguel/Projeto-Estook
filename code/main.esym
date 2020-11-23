@@ -1,8 +1,7 @@
-D G "strcopy" 4 54 "strcpy"
-D G "__PCH__" 0 48 ""5.015""
-D G "__DEVICE__" 0 48 "4550"
-D G "__DATE__" 0 48 ""22-nov-20""
-D G "__TIME__" 0 48 ""17:07:43"" "LCD module connections"
+D G "__PCH__" 0 52 ""5.015""
+D G "__DEVICE__" 0 52 "4550"
+D G "__DATE__" 0 52 ""22-nov-20""
+D G "__TIME__" 0 52 ""22:55:37"" "LCD module connections"
 D G "LCD_RS_PIN" 0 2 "PIN_D0"
 D G "LCD_RW_PIN" 0 3 "PIN_D1"
 D G "LCD_ENABLE_PIN" 0 4 "PIN_D2"
@@ -920,213 +919,230 @@ d G "INT_EEPROM" 1 831 "0x00A010"
 d G "INT_OSCF" 1 832 "0x00A080"
 d G "INT_SPP" 1 833 "0x009D80"
 d G "INT_USB" 1 834 "0x00A020"
-D G "__LCD_C__" 2 76 ""
-C L "jump_to_irs" 2 2 2 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 1 "FUNCTION"
-C L "jump_to_irs" 2 2 2 "FUNCTION"
-T G "LCD_PIN_MAP" 2 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `652  "this is to improve compatability with previous LCD drivers that accepted"
-D G "lcd_output_enable" 2 112 "(x) output_bit(LCD_ENABLE_PIN, x)"
-D G "lcd_enable_tris" 2 113 "()  output_drive(LCD_ENABLE_PIN)"
-D G "lcd_output_rs" 2 120 "(x) output_bit(LCD_RS_PIN, x)"
-D G "lcd_rs_tris" 2 121 "()  output_drive(LCD_RS_PIN)"
-D G "lcd_output_rw" 2 128 "(x) output_bit(LCD_RW_PIN, x)"
-D G "lcd_rw_tris" 2 129 "()  output_drive(LCD_RW_PIN)"
-D G "LCD_TYPE" 2 179 "2" "0=5x7, 1=5x10, 2=2 lines"
-D G "LCD_LINE_TWO" 2 183 "0x40" "LCD RAM address for the second line"
-D G "LCD_LINE_LENGTH" 2 187 "20"
-f G "lcd_read_nibble" 2 190 "int8()" `653 
-F G "lcd_read_byte" 2 193 "int8()" `654 
-V L "low" 2 194 "int8" `655 
-V L "high" 2 194 "int8" `656 
-F G "lcd_read_nibble" 2 240 "int8()" `653 
-V L "n" 2 242 "int8" `657 
-C L "lcd_read_nibble" 2 2 1 "FUNCTION"
-V L "n" 2 256 "int8" `659 
-F G "lcd_send_nibble" 2 257 "void(int8 n)" `658 
-C L "lcd_send_nibble" 2 2 1 "FUNCTION"
-V L "address" 2 274 "int8" `661 
-V L "n" 2 274 "int8" `662 
-F G "lcd_send_byte" 2 275 "void(int8 address,int8 n)" `660 
-F G "lcd_init" 2 300 "void()" `663 
-V L "i" 2 301 "int8" `664 
-V L "LCD_INIT_STRING" 2 302 "int8[4]" `665 
-C L "lcd_init" 2 2 2 "FUNCTION"
-V L "x" 2 345 "int8" `667 
-V L "y" 2 345 "int8" `668 
-F G "lcd_gotoxy" 2 346 "void(int8 x,int8 y)" `666 
-V L "address" 2 347 "int8" `669 
-V L "c" 2 363 "int8" `671 
-F G "lcd_putc" 2 364 "void(int8 c)" `670 
-V L "x" 2 406 "int8" `673 
-V L "y" 2 406 "int8" `674 
-F G "lcd_getc" 2 407 "int8(int8 x,int8 y)" `672 
-V L "value" 2 408 "int8" `675 
-C L "lcd_getc" 2 2 1 "FUNCTION"
-C L "lcd_set_cgram_char" 2 2 5 "FUNCTION"
-V L "which" 2 424 "int8" `677 
-V L "ptr" 2 424 "*int8" `678 
-F G "lcd_set_cgram_char" 2 425 "void(int8 which,*int8 ptr)" `676 
-V L "i" 2 426 "int8" `679 
-C L "lcd_set_cgram_char" 2 2 1 "FUNCTION"
-V L "on" 2 443 "int8" `681 
-F G "lcd_cursor_on" 2 444 "void(int8 on)" `680 
-C L "lcd_cursor_on" 2 2 1 "FUNCTION"
-C L "lcd_cursor_on" 2 2 1 "FUNCTION"
-D G "_STDIO" 3 12 ""
-D G "_STRING" 4 12 ""
-D G "_STDDEF" 5 13 ""
-D G "ptrdiff_t" 5 18 "unsigned int16"
-D G "size_t" 5 24 "unsigned int16"
-D G "wchar_t" 5 26 "char"
-D G "NULL" 5 27 "0"
-D G "offsetof" 5 29 "(s,f) (offsetofbit(s,f)/8)"
-D G "_CTYPE" 6 12 ""
-D G "islower" 6 14 "(x)  isamong(x,"abcdefghijklmnopqrstuvwxyz")"
-D G "isupper" 6 15 "(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZ")"
-D G "isalnum" 6 16 "(x)  isamong(x,"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")"
-D G "isalpha" 6 17 "(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")"
-D G "isdigit" 6 18 "(x)  isamong(x,"0123456789")"
-D G "isspace" 6 19 "(x)  ((x)==' ')"
-D G "isxdigit" 6 20 "(x) isamong(x,"0123456789ABCDEFabcdef")"
-D G "iscntrl" 6 21 "(x)  ((x)<' ')"
-D G "isprint" 6 22 "(x)  ((x)>=' ')"
-D G "isgraph" 6 23 "(x)  ((x)>' ')"
-D G "ispunct" 6 24 "(x)  (((x)>' ')&&!isalnum(x))"
-C L "memmove" 4 19 10 "FUNCTION"
-V L "s1" 4 34 "*int8" `683 
-V L "s2" 4 34 "*int8" `684 
-V L "n" 4 34 "int16" `685 
-F G "memmove" 4 35 "*int8(*int8 s1,*int8 s2,int16 n)" `682 
-V L "sc1" 4 36 "*int8" `686 
-V L "sc2" 4 37 "*int8" `687 
-D G "strcopy" 4 54 "strcpy"
-C L "strncpy" 4 19 4 "FUNCTION"
-V L "s1" 4 61 "*int8" `689 
-V L "s2" 4 61 "*int8" `690 
-V L "n" 4 61 "int16" `691 
-F G "strncpy" 4 62 "*int8(*int8 s1,*int8 s2,int16 n)" `688 
-V L "s" 4 63 "*int8" `692 
-C L "strcat" 4 19 3 "FUNCTION"
-V L "s1" 4 78 "*int8" `694 
-V L "s2" 4 78 "*int8" `695 
-F G "strcat" 4 79 "*int8(*int8 s1,*int8 s2)" `693 
-V L "s" 4 80 "*int8" `696 
-C L "strncat" 4 19 2 "FUNCTION"
-V L "s1" 4 96 "*int8" `698 
-V L "s2" 4 96 "*int8" `699 
-V L "n" 4 96 "int16" `700 
-F G "strncat" 4 97 "*int8(*int8 s1,*int8 s2,int16 n)" `697 
-V L "s" 4 98 "*int8" `701 
-C L "memcmp" 4 19 3 "FUNCTION"
-V L "s1" 4 120 "*int8" `703 
-V L "s2" 4 120 "*int8" `704 
-V L "n" 4 120 "int16" `705 
-F G "memcmp" 4 121 "sint8(*int8 s1,*int8 s2,int16 n)" `702 
-V L "su1" 4 122 "*int8" `706 
-V L "su2" 4 122 "*int8" `707 
-C L "strcmp" 4 19 2 "FUNCTION"
-V L "s1" 4 134 "*int8" `709 
-V L "s2" 4 134 "*int8" `710 
-F G "strcmp" 4 135 "sint8(*int8 s1,*int8 s2)" `708 
-C L "strcoll" 4 19 2 "FUNCTION"
-V L "s1" 4 144 "*int8" `712 
-V L "s2" 4 144 "*int8" `713 
-F G "strcoll" 4 145 "sint8(*int8 s1,*int8 s2)" `711 
-C L "strncmp" 4 19 4 "FUNCTION"
-V L "s1" 4 157 "*int8" `715 
-V L "s2" 4 157 "*int8" `716 
-V L "n" 4 157 "int16" `717 
-F G "strncmp" 4 158 "sint8(*int8 s1,*int8 s2,int16 n)" `714 
-C L "strxfrm" 4 19 3 "FUNCTION"
-V L "s1" 4 169 "*int8" `719 
-V L "s2" 4 169 "*int8" `720 
-V L "n" 4 169 "int16" `721 
-F G "strxfrm" 4 170 "int16(*int8 s1,*int8 s2,int16 n)" `718 
-V L "s" 4 171 "*int8" `722 
-V L "n1" 4 172 "int8" `723 
-C L "memchr" 4 19 3 "FUNCTION"
-V L "s" 4 191 "*int8" `725 
-V L "c" 4 191 "int8" `726 
-V L "n" 4 191 "int16" `727 
-F G "memchr" 4 192 "*int8(*int8 s,int8 c,int16 n)" `724 
-V L "uc" 4 193 "int8" `728 
-V L "su" 4 194 "*int8" `729 
-C L "strchr" 4 19 2 "FUNCTION"
-V L "s" 4 205 "*int8" `731 
-V L "c" 4 205 "int8" `732 
-F G "strchr" 4 206 "*int8(*int8 s,int8 c)" `730 
-C L "strcspn" 4 19 4 "FUNCTION"
-V L "s1" 4 217 "*int8" `734 
-V L "s2" 4 217 "*int8" `735 
-F G "strcspn" 4 218 "int8(*int8 s1,*int8 s2)" `733 
-V L "sc1" 4 219 "*int8" `736 
-V L "sc2" 4 219 "*int8" `737 
-C L "strpbrk" 4 19 4 "FUNCTION"
-V L "s1" 4 232 "*int8" `739 
-V L "s2" 4 232 "*int8" `740 
-F G "strpbrk" 4 233 "*int8(*int8 s1,*int8 s2)" `738 
-V L "sc1" 4 234 "*int8" `741 
-V L "sc2" 4 234 "*int8" `742 
-C L "strrchr" 4 19 2 "FUNCTION"
-V L "s" 4 247 "*int8" `744 
-V L "c" 4 247 "int8" `745 
-F G "strrchr" 4 248 "*int8(*int8 s,int8 c)" `743 
-V L "p" 4 249 "*int8" `746 
-C L "strspn" 4 19 2 "FUNCTION"
-V L "s1" 4 262 "*int8" `748 
-V L "s2" 4 262 "*int8" `749 
-F G "strspn" 4 263 "int8(*int8 s1,*int8 s2)" `747 
-V L "sc1" 4 264 "*int8" `750 
-V L "sc2" 4 264 "*int8" `751 
-C L "strstr" 4 19 6 "FUNCTION"
-V L "s1" 4 281 "*int8" `753 
-V L "s2" 4 281 "*int8" `754 
-F G "strstr" 4 282 "*int8(*int8 s1,*int8 s2)" `752 
-V L "s" 4 283 "*int8" `755 
-V L "t" 4 283 "*int8" `756 
-C L "strtok" 4 19 13 "FUNCTION"
-V L "s1" 4 320 "*int8" `758 
-V L "s2" 4 320 "*int8" `759 
-F G "strtok" 4 321 "*int8(*int8 s1,*int8 s2)" `757 
-V L "beg" 4 322 "*int8" `760 
-V L "end" 4 322 "*int8" `761 
-V L "save" 4 323 "*int8" `762 
-C L "strlen" 4 19 6 "FUNCTION"
-V L "s" 4 369 "*int8" `764 
-F G "strlen" 4 370 "int8(*int8 s)" `763 
-V L "sc" 4 371 "*int8" `765 
-C L "stricmp" 4 19 2 "FUNCTION"
-V L "s1" 4 380 "*int8" `767 
-V L "s2" 4 380 "*int8" `768 
-F G "stricmp" 4 381 "sint8(*int8 s1,*int8 s2)" `766 
-C L "strlwr" 4 19 3 "FUNCTION"
-V L "s" 4 394 "*int8" `772 
-F G "strlwr" 4 395 "*int8(*int8 s)" `771 
-V L "p" 4 396 "*int8" `773 
-C L "strupr" 4 19 3 "FUNCTION"
-V L "s" 4 408 "*int8" `775 
-F G "strupr" 4 409 "*int8(*int8 s)" `774 
-V L "p" 4 410 "*int8" `776 
-C L "Start" 3 20 5 "FUNCTION"
-C L "Start" 7 1 1 "FUNCTION"
-F G "Start" 7 2 "void()" `777 
-C L "Start" 7 1 1 "FUNCTION"
-C L "Start" 7 1 1 "FUNCTION"
-C L "Start" 7 1 1 "FUNCTION"
-C L "Start" 7 1 1 "FUNCTION"
-F G "Lamps" 7 22 "void()" `784 
-V L "speed_" 7 23 "int8" `785 
-V L "i" 7 29 "int8" `787 
-F G "PassadorPag" 7 79 "void()" `789 
-V L "speed_" 7 80 "int8" `790 
-F G "MAIN" 0 23 "void()" `792  "output_b(0);"
-C L "MAIN" 0 33 1 "FUNCTION"
-C L "MAIN" 0 33 2 "FUNCTION"
-C L "MAIN" 0 33 1 "FUNCTION"
+D G "_STDIO" 2 12 ""
+D G "_STRING" 3 12 ""
+D G "_STDDEF" 4 13 ""
+D G "ptrdiff_t" 4 18 "unsigned int16"
+D G "size_t" 4 24 "unsigned int16"
+D G "wchar_t" 4 26 "char"
+D G "NULL" 4 27 "0"
+D G "offsetof" 4 29 "(s,f) (offsetofbit(s,f)/8)"
+D G "_CTYPE" 5 12 ""
+D G "islower" 5 14 "(x)  isamong(x,"abcdefghijklmnopqrstuvwxyz")"
+D G "isupper" 5 15 "(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZ")"
+D G "isalnum" 5 16 "(x)  isamong(x,"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")"
+D G "isalpha" 5 17 "(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")"
+D G "isdigit" 5 18 "(x)  isamong(x,"0123456789")"
+D G "isspace" 5 19 "(x)  ((x)==' ')"
+D G "isxdigit" 5 20 "(x) isamong(x,"0123456789ABCDEFabcdef")"
+D G "iscntrl" 5 21 "(x)  ((x)<' ')"
+D G "isprint" 5 22 "(x)  ((x)>=' ')"
+D G "isgraph" 5 23 "(x)  ((x)>' ')"
+D G "ispunct" 5 24 "(x)  (((x)>' ')&&!isalnum(x))"
+C L "jump_to_irs" 3 19 10 "FUNCTION"
+V L "s1" 3 34 "*int8" `652 
+V L "s2" 3 34 "*int8" `653 
+V L "n" 3 34 "int16" `654 
+F G "memmove" 3 35 "*int8(*int8 s1,*int8 s2,int16 n)" `651 
+V L "sc1" 3 36 "*int8" `655 
+V L "sc2" 3 37 "*int8" `656 
+D G "strcopy" 3 54 "strcpy"
+C L "strncpy" 3 19 4 "FUNCTION"
+V L "s1" 3 61 "*int8" `658 
+V L "s2" 3 61 "*int8" `659 
+V L "n" 3 61 "int16" `660 
+F G "strncpy" 3 62 "*int8(*int8 s1,*int8 s2,int16 n)" `657 
+V L "s" 3 63 "*int8" `661 
+C L "strcat" 3 19 3 "FUNCTION"
+V L "s1" 3 78 "*int8" `663 
+V L "s2" 3 78 "*int8" `664 
+F G "strcat" 3 79 "*int8(*int8 s1,*int8 s2)" `662 
+V L "s" 3 80 "*int8" `665 
+C L "strncat" 3 19 2 "FUNCTION"
+V L "s1" 3 96 "*int8" `667 
+V L "s2" 3 96 "*int8" `668 
+V L "n" 3 96 "int16" `669 
+F G "strncat" 3 97 "*int8(*int8 s1,*int8 s2,int16 n)" `666 
+V L "s" 3 98 "*int8" `670 
+C L "memcmp" 3 19 3 "FUNCTION"
+V L "s1" 3 120 "*int8" `672 
+V L "s2" 3 120 "*int8" `673 
+V L "n" 3 120 "int16" `674 
+F G "memcmp" 3 121 "sint8(*int8 s1,*int8 s2,int16 n)" `671 
+V L "su1" 3 122 "*int8" `675 
+V L "su2" 3 122 "*int8" `676 
+C L "strcmp" 3 19 2 "FUNCTION"
+V L "s1" 3 134 "*int8" `678 
+V L "s2" 3 134 "*int8" `679 
+F G "strcmp" 3 135 "sint8(*int8 s1,*int8 s2)" `677 
+C L "strcoll" 3 19 2 "FUNCTION"
+V L "s1" 3 144 "*int8" `681 
+V L "s2" 3 144 "*int8" `682 
+F G "strcoll" 3 145 "sint8(*int8 s1,*int8 s2)" `680 
+C L "strncmp" 3 19 4 "FUNCTION"
+V L "s1" 3 157 "*int8" `684 
+V L "s2" 3 157 "*int8" `685 
+V L "n" 3 157 "int16" `686 
+F G "strncmp" 3 158 "sint8(*int8 s1,*int8 s2,int16 n)" `683 
+C L "strxfrm" 3 19 3 "FUNCTION"
+V L "s1" 3 169 "*int8" `688 
+V L "s2" 3 169 "*int8" `689 
+V L "n" 3 169 "int16" `690 
+F G "strxfrm" 3 170 "int16(*int8 s1,*int8 s2,int16 n)" `687 
+V L "s" 3 171 "*int8" `691 
+V L "n1" 3 172 "int8" `692 
+C L "memchr" 3 19 3 "FUNCTION"
+V L "s" 3 191 "*int8" `694 
+V L "c" 3 191 "int8" `695 
+V L "n" 3 191 "int16" `696 
+F G "memchr" 3 192 "*int8(*int8 s,int8 c,int16 n)" `693 
+V L "uc" 3 193 "int8" `697 
+V L "su" 3 194 "*int8" `698 
+C L "strchr" 3 19 2 "FUNCTION"
+V L "s" 3 205 "*int8" `700 
+V L "c" 3 205 "int8" `701 
+F G "strchr" 3 206 "*int8(*int8 s,int8 c)" `699 
+C L "strcspn" 3 19 4 "FUNCTION"
+V L "s1" 3 217 "*int8" `703 
+V L "s2" 3 217 "*int8" `704 
+F G "strcspn" 3 218 "int8(*int8 s1,*int8 s2)" `702 
+V L "sc1" 3 219 "*int8" `705 
+V L "sc2" 3 219 "*int8" `706 
+C L "strpbrk" 3 19 4 "FUNCTION"
+V L "s1" 3 232 "*int8" `708 
+V L "s2" 3 232 "*int8" `709 
+F G "strpbrk" 3 233 "*int8(*int8 s1,*int8 s2)" `707 
+V L "sc1" 3 234 "*int8" `710 
+V L "sc2" 3 234 "*int8" `711 
+C L "strrchr" 3 19 2 "FUNCTION"
+V L "s" 3 247 "*int8" `713 
+V L "c" 3 247 "int8" `714 
+F G "strrchr" 3 248 "*int8(*int8 s,int8 c)" `712 
+V L "p" 3 249 "*int8" `715 
+C L "strspn" 3 19 2 "FUNCTION"
+V L "s1" 3 262 "*int8" `717 
+V L "s2" 3 262 "*int8" `718 
+F G "strspn" 3 263 "int8(*int8 s1,*int8 s2)" `716 
+V L "sc1" 3 264 "*int8" `719 
+V L "sc2" 3 264 "*int8" `720 
+C L "strstr" 3 19 6 "FUNCTION"
+V L "s1" 3 281 "*int8" `722 
+V L "s2" 3 281 "*int8" `723 
+F G "strstr" 3 282 "*int8(*int8 s1,*int8 s2)" `721 
+V L "s" 3 283 "*int8" `724 
+V L "t" 3 283 "*int8" `725 
+C L "strtok" 3 19 13 "FUNCTION"
+V L "s1" 3 320 "*int8" `727 
+V L "s2" 3 320 "*int8" `728 
+F G "strtok" 3 321 "*int8(*int8 s1,*int8 s2)" `726 
+V L "beg" 3 322 "*int8" `729 
+V L "end" 3 322 "*int8" `730 
+V L "save" 3 323 "*int8" `731 
+C L "strlen" 3 19 6 "FUNCTION"
+V L "s" 3 369 "*int8" `733 
+F G "strlen" 3 370 "int8(*int8 s)" `732 
+V L "sc" 3 371 "*int8" `734 
+C L "stricmp" 3 19 2 "FUNCTION"
+V L "s1" 3 380 "*int8" `736 
+V L "s2" 3 380 "*int8" `737 
+F G "stricmp" 3 381 "sint8(*int8 s1,*int8 s2)" `735 
+C L "strlwr" 3 19 3 "FUNCTION"
+V L "s" 3 394 "*int8" `741 
+F G "strlwr" 3 395 "*int8(*int8 s)" `740 
+V L "p" 3 396 "*int8" `742 
+C L "strupr" 3 19 3 "FUNCTION"
+V L "s" 3 408 "*int8" `744 
+F G "strupr" 3 409 "*int8(*int8 s)" `743 
+V L "p" 3 410 "*int8" `745 
+D G "LCD_BACKLIGHT" 7 4 "0x08"
+D G "LCD_NOBACKLIGHT" 7 5 "0x00"
+D G "LCD_FIRST_ROW" 7 6 "0x80"
+D G "LCD_SECOND_ROW" 7 7 "0xC0"
+D G "LCD_THIRD_ROW" 7 8 "0x94"
+D G "LCD_FOURTH_ROW" 7 9 "0xD4"
+D G "LCD_CLEAR" 7 10 "0x01"
+D G "LCD_RETURN_HOME" 7 11 "0x02"
+D G "LCD_ENTRY_MODE_SET" 7 12 "0x04"
+D G "LCD_CURSOR_OFF" 7 13 "0x0C"
+D G "LCD_UNDERLINE_ON" 7 14 "0x0E"
+D G "LCD_BLINK_CURSOR_ON" 7 15 "0x0F"
+D G "LCD_MOVE_CURSOR_LEFT" 7 16 "0x10"
+D G "LCD_MOVE_CURSOR_RIGHT" 7 17 "0x14"
+D G "LCD_TURN_ON" 7 18 "0x0C"
+D G "LCD_TURN_OFF" 7 19 "0x08"
+D G "LCD_SHIFT_LEFT" 7 20 "0x18"
+D G "LCD_SHIFT_RIGHT" 7 21 "0x1E"
+D G "LCD_TYPE" 7 24 "2" "0=5x7, 1=5x10, 2=2 lines"
+V G "RS" 7 28 "int1" `746 
+V G "i2c_addr" 7 29 "int8" `747 
+V G "backlight_val" 7 29 "int8" `748 
+V L "n" 7 31 "int8" `750 
+f G "LCD_Write_Nibble" 7 31 "void(int8 n)" `749 
+V L "Command" 7 32 "int8" `752 
+f G "LCD_Cmd" 7 32 "void(int8 Command)" `751 
+V L "col" 7 33 "int8" `754 
+V L "row" 7 33 "int8" `755 
+f G "LCD_Goto" 7 33 "void(int8 col,int8 row)" `753 
+V L "LCD_Char" 7 34 "int8" `757 
+f G "LCD_Out" 7 34 "void(int8 LCD_Char)" `756 
+V L "_i2c_addr" 7 35 "int8" `759 
+f G "LCD_Begin" 7 35 "void(int8 _i2c_addr)" `758 
+f G "Backlight" 7 36 "void()" `760 
+f G "noBacklight" 7 37 "void()" `761 
+V L "value" 7 38 "int8" `763 
+f G "Expander_Write" 7 38 "void(int8 value)" `762 
+V L "n" 7 40 "int8" `765 
+F G "LCD_Write_Nibble" 7 40 "void(int8 n)" `749 
+V L "Command" 7 49 "int8" `765 
+F G "LCD_Cmd" 7 49 "void(int8 Command)" `751 
+V L "col" 7 55 "int8" `754 
+V L "row" 7 55 "int8" `766 
+F G "LCD_Goto" 7 55 "void(int8 col,int8 row)" `753 
+C L "LCD_Goto" 7 1 1 "FUNCTION"
+V L "LCD_Char" 7 71 "int8" `765 
+F G "LCD_Out" 7 71 "void(int8 LCD_Char)" `756 
+V L "_i2c_addr" 7 77 "int8" `765 
+F G "LCD_Begin" 7 77 "void(int8 _i2c_addr)" `758 
+F G "Backlight" 7 99 "void()" `760 
+F G "noBacklight" 7 104 "void()" `761 
+V L "value" 7 109 "int8" `765 
+F G "Expander_Write" 7 109 "void(int8 value)" `762 
+C L "Start" 6 2 1 "FUNCTION"
+F G "Start" 6 3 "void(int8 value,int8 row)" `764  "LCD_Goto(coluna, linha);"
+C L "Start" 6 2 1 "FUNCTION"
+C L "Start" 6 2 1 "FUNCTION"
+F G "CloseDoor" 6 23 "void()" `772 
+C L "CloseDoor" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+F G "Lamps" 6 31 "void()" `775 
+V L "speed_" 6 32 "int8" `776 
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+V L "i" 6 36 "int8" `777 
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "Lamps" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+F G "PassadorPag" 6 83 "void()" `778 
+V L "speed_" 6 84 "int8" `779 
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+C L "PassadorPag" 6 2 1 "FUNCTION"
+F G "MAIN" 0 24 "void()" `781 
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
+C L "MAIN" 0 28 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
@@ -1263,3 +1279,8 @@ F B "spi_data_is_in2" 0 0
 F B "brownout_enable" 1 0
 F B "delay_ms" 1 0
 F B "delay_us" 1 0
+F B "i2c_read" 0 2
+F B "i2c_write" 1 2
+F B "i2c_start" 0 2
+F B "i2c_stop" 0 1
+F B "i2c_isr_state" 0 1

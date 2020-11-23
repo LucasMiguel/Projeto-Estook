@@ -4,87 +4,87 @@
 002     @SCRATCH
 003     @SCRATCH
 004-005 strtok.save
-006     lcd_init.i
-006     PassadorPag.speed_
-006     Start.@SCRATCH1
-007-00A lcd_init.LCD_INIT_STRING
-007     @PSTRINGC_670.@SCRATCH1
-007     PassadorPag.@SCRATCH1
-008     @PSTRINGC_670.@SCRATCH2
-009     lcd_putc.c
-00A     lcd_gotoxy.x
-00B     lcd_gotoxy.y
+006.0   RS
+007     i2c_addr
+008     backlight_val
+009     LCD_Begin._i2c_addr
+009     PassadorPag.speed_
+009     Start.@SCRATCH1
+00A     LCD_Goto.col
+00A     @PSTRINGC_756.@SCRATCH1
+00A     PassadorPag.@SCRATCH1
+00B     LCD_Goto.row
 00B     @delay_ms1.P1
-00B     lcd_init.@SCRATCH1
-00C     lcd_gotoxy.address
-00D     lcd_gotoxy.@SCRATCH1
-00E     lcd_send_byte.address
-00F     lcd_send_byte.n
-010     lcd_read_byte.low
-010     lcd_send_byte.@SCRATCH1
-011     lcd_read_byte.high
-011     lcd_send_nibble.n
-012     lcd_read_nibble.n
-012     lcd_read_byte.@SCRATCH1
-013     lcd_read_nibble.@SCRATCH1
+00B     @PSTRINGC_756.@SCRATCH2
+00C     LCD_Out.LCD_Char
+00C     LCD_Goto.@SCRATCH1
+00D     LCD_Cmd.Command
+00D     LCD_Out.@SCRATCH1
+00E     LCD_Cmd.@SCRATCH1
+00F     LCD_Write_Nibble.n
+010     LCD_Write_Nibble.@SCRATCH1
+011     Expander_Write.value
+012     Expander_Write.@SCRATCH1
+013     @I2C_WRITE_1.P1
 F83     PSP_DATA
 FB4.6   C1OUT
 FB4.7   C2OUT
-FBB     CCP_2
 FBB     CCP_2_LOW
+FBB     CCP_2
 FBC     CCP_2_HIGH
 FBE     CCP_1
 FBE     CCP_1_LOW
 FBF     CCP_1_HIGH
 FE1-FE2 @WRITE_PACKED_MEMORY.P1
 FE1-FE2 @READ_PACKED_MEMORY.P2
-FE9-FEA @READ_PROGRAM_MEMORY.P1
-FE9-FEA @READ_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P3
-FE9-FEA @WRITE_PACKED_MEMORY.P4
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
 FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
 FF6-FF8 @READ_PROGRAM_MEMORY.P2
 
 ROM Allocation:
-000004  @const778.call
-000012  @const780.call
-000014  @const781.call
-000016  @const782.call
-000018  @const783.call
-00002A  @const786.call
-000036  @const788.call
-000040  @const791.call
-000050  @const795.call
-00005A  @const796.call
-000066  @delay_ms1
-00008C  lcd_send_nibble
-0000C0  lcd_read_nibble
-00010A  lcd_read_byte
-00014A  lcd_send_byte
-000188  lcd_init
-000202  lcd_gotoxy
-000224  lcd_putc
-000274  @PSTRINGC_670
-000294  Start
+000004  @const765.call
+000012  @const767.call
+000014  @const768.call
+000016  @const769.call
+000018  @const770.call
+00002E  @const771.call
+000040  @const773.call
+000056  @const774.call
+000062  @const780.call
+000072  @const784.call
+000088  @const785.call
+000092  @I2C_WRITE_1
+0000E2  Expander_Write
+00011C  @delay_ms1
+000142  LCD_Write_Nibble
+000174  LCD_Cmd
+000194  LCD_Begin
+000206  LCD_Goto
+00024E  LCD_Out
+000270  @PSTRINGC_756
+000290  Start
 000340  PassadorPag
-0003B0  @cinit1
-0003B0  MAIN
-0003C6  @cinit2
+000420  MAIN
+000420  @cinit1
+00043A  @cinit2
 
 Project Directory:
     C:\Users\lucas\Documents\Faculdade\2-2020\Projeto interdiciplinar\Programação\Projeto\code\
 
 Project Files:
-    main.c                                                  [22-nov-20 17:01  CRC=C4FC6990]
+    main.c                                                  [22-nov-20 22:55  CRC=B860E789]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 14:35  CRC=5337E248]
-    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [19-set-13 15:38  CRC=D1A6378A]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h [31-jul-07 13:24  CRC=4E4534F4]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [14-jul-11 10:13  CRC=23EDEC8F]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-jul-10 09:27  CRC=897CEC6C]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-jan-08 13:55  CRC=2D1F019F]
-    functions.h                                             [22-nov-20 17:07  CRC=85A80C2E]
+    functions.h                                             [22-nov-20 22:54  CRC=CAE315C7]
+    I2C_LCD.c                                               [22-nov-20 21:15  CRC=CD038333]
 
-Source signature=1DF9AB4C
+Source signature=9951F58C
 
 Units:
     main (main)
