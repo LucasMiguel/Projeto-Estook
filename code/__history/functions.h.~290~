@@ -1,0 +1,142 @@
+#include <I2C_LCD.c> //Biblioteca de controle do Display por I2C
+#include <kbd.c>  //Biblioteca do KeyPad
+//Função para iniciar o display
+void Start(){   
+   //LCD_Goto(coluna, linha);        
+   LCD_Goto(3, 2);                         
+   LCD_Out("Carregando .");
+   delay_ms(100);
+   LCD_Goto(14, 2);
+   LCD_Out(".");   
+   delay_ms(100);
+   LCD_Goto(15, 2);
+   LCD_Out(".");
+   delay_ms(100);
+   LCD_Goto(16, 2);
+   LCD_Out(".");
+   delay_ms(100);
+   LCD_Goto(1, 2);   
+   LCD_Cmd(LCD_CLEAR);                             //Limpara o display   
+   delay_ms(100);   
+}
+
+
+//Função feedback para fechar a porta
+void CloseDoor(){
+   LCD_Cmd(LCD_CLEAR);                             //Limpara o display  
+   delay_ms(100);
+   LCD_Goto(4,2);
+   LCD_Out("Fecha Porta !!");
+}
+
+// Função de constrole do andar das lâmpadas ==========================================
+void Lamps(){                                      
+   unsigned int8 speed_ = 2000;                    //Velocidade dos motores   
+   for(;;){                                        //Função para mover as lampadas
+      if(input(pin_B7)){                           //Teste para saber se está no final. Se não estiver ela irá para o ponto inicial         
+         for(int i=0; i<3; i++){                   //irá para o meio da pagina para começar a esterilização 
+            LCD_Goto(1, 1);
+            LCD_Out("Para Frente");
+            output_f(0b00000101);
+            delay_ms(200);
+            output_f(0b00000110);
+            delay_ms(200);
+            output_f(0b00001010);
+            delay_ms(200);
+            output_f(0b00001001);
+            delay_ms(200);        
+         }
+         delay_ms(2000);                         //Tempo de espera de 40 segundos para esterelização  
+         for(;;){                                //Função que retornará as lampadas para o estágio inicial            
+            output_f(0b00000110);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+            output_f(0b00000101);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+            output_f(0b00001001);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+            output_f(0b0001010);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+         }   
+         break;
+      }else{                                    //Caso não esteja na posição inicial essa função irá levar até la               
+         for(;;){  
+            LCD_Goto(1, 1);
+            LCD_Out("Para Frente");
+            output_f(0b00000110);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;            //Teste se chegou na posição inicial
+            output_f(0b00000101);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+            output_f(0b00001001);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+            output_f(0b00001010);
+            delay_ms(speed_);
+            if(input(pin_B7)) break;
+         }
+      }
+   }   
+   delay_ms(2000);                              //Tempo de aguardo até passar as páginas
+}
+
+//Função que irá passar as páginas ===============================================================
+void PassadorPag(){
+   unsigned int8 speed_ = 1000;           //Velocidade dos motores
+      for(;;){                               //Haste principal irá para a frente até encostar no livro
+      output_a(0b00000110);
+      delay_ms(speed_);
+      if(input(pin_B3)) break;            //Teste se encostou no livro
+      output_a(0b00000101);
+      delay_ms(speed_);
+      if(input(pin_B3)) break;
+      output_a(0b00001001);
+      delay_ms(speed_);
+      if(input(pin_B3)) break;
+      output_a(0b00001010);
+      delay_ms(speed_);
+      if(input(pin_B3)) break;
+   }
+   delay_ms(500);
+   output_high(pin_B2);                    //Liga o FAN para segurar a página
+   delay_ms(1000);                        //Depois que tiver encostador irá parar e esperar até sugar a página
+   for(;;){                               //Irá passar a pagina até encostar do outro lado
+      output_a(0b00000101);
+      delay_ms(speed_);
+      if(input(pin_B4)) break;            //Teste se chegou do outro lado
+      output_a(0b00000110);
+      delay_ms(speed_);
+      if(input(pin_B4)) break;
+      output_a(0b00001010);
+      delay_ms(speed_);
+      if(input(pin_B4)) break;
+      output_a(0b00001001);
+      delay_ms(speed_);       
+      if(input(pin_B4)) break;
+   }
+   delay_ms(1000);                        
+   output_low(pin_B2);                    //Desliga a FAN do Passador
+   delay_ms(1000);  
+                                 //Faz a haste secundária sair da pagina
+   output_f(0b00010000);
+   delay_ms(speed_);
+   output_f(0b00110000);
+   delay_ms(speed_);
+   output_f(0b00100000);
+   delay_ms(2000);  
+   //Faz a Haste primaria ficar na vertical
+   output_a(0b00000110);
+   delay_ms(speed_);   
+   output_a(0b00000101);
+   delay_ms(speed_);
+   //Faz a haste secudária voltar para a posição original
+   output_f(0b00110000);      
+   delay_ms(speed_);
+   output_f(0b00010000);
+   delay_ms(speed_);              
+}
+
