@@ -1,3 +1,17 @@
-      Memory usage:   ROM=14%      RAM=3% - 5%
-      0 Errors,  0 Warnings.
-Build Successful.
+*** Error 173 "main.c" Line 25(6,10): Functions may not be nested
+*** Error 12 "main.c" Line 40(13,23): Undefined identifier   valuePages
+*** Error 12 "main.c" Line 41(10,11): Undefined identifier   k
+*** Error 12 "main.c" Line 42(13,14): Undefined identifier   k
+*** Error 12 "main.c" Line 43(23,24): Undefined identifier   k
+*** Error 12 "main.c" Line 44(13,27): Undefined identifier   valuePagesChar
+*** Error 12 "main.c" Line 45(13,14): Undefined identifier   k
+*** Error 12 "main.c" Line 46(13,17): Undefined identifier   cont
+*** Error 12 "main.c" Line 51(13,23): Undefined identifier   valuePages
+*** Error 12 "main.c" Line 52(16,26): Undefined identifier   valuePages
+*** Error 12 "main.c" Line 64(25,35): Undefined identifier   valuePages
+*** Error 76 "main.c" Line 64(39,40): Expect ;
+*** Error 12 "main.c" Line 66(35,45): Undefined identifier   valuePages
+*** Error 12 "main.c" Line 68(24,25): Undefined identifier  -- PassadorPag
+*** Error 12 "main.c" Line 70(20,21): Undefined identifier  -- Finalizado
+*** Error 79 "main.c" Line 75(1,2): Expect }
+*** Error 79 "main.c" Line 75(1,2): Expect }

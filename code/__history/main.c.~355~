@@ -67,7 +67,6 @@ void main()
             Lamps();
             PassadorPag();
          }
-         Finish();         
       }else{                                               //Teste para as portas fechadas 
             CloseDoor();                                
       }      

@@ -1,8 +1,9 @@
 #include <I2C_LCD.c> //Biblioteca de controle do Display por I2C
+#include <kbd.c>  //Biblioteca do KeyPad
 //Função para iniciar o display
 void Start(){   
    //LCD_Goto(coluna, linha);        
-   LCD_Goto(2, 2);                         
+   LCD_Goto(3, 2);                         
    LCD_Out("Carregando .");
    delay_ms(100);
    LCD_Goto(14, 2);
@@ -16,69 +17,53 @@ void Start(){
    delay_ms(100);
    LCD_Goto(1, 2);   
    LCD_Cmd(LCD_CLEAR);                             //Limpara o display   
-   delay_ms(100);
-   LCD_Goto(2, 2);                                // Go to column 2 row 3
-   LCD_Out("Clique em iniciar"); 
-}
-const char k = 0;
-const char valueChar[3];
-const int valueInt;
-const int cont=0;
-int GetValue(){   
-      k = kbd_getc();                                           // read keypad input (if exists) 
-      if(k!=0 && k!='*' && k !="#" && cont<4)                  // se a tecla for captaurada e não for "*" ou "#" ou for menor que 4 digitos
-      { 
-      LCD_Out(k);            // print captured key to lcd
-      valueChar[cont] = k;
-      k=0;                    // reset k for another loop round
-      cont++;
-      delay_ms(250);          // delay between key presses
-      } 
-      delay_ms(1);
-      if(input(pin_B5)){
-      valueInt = atoi(valueChar); 
-      if(valueInt != 0){
-         break;
-      }
-      }         
-
+   delay_ms(100);   
 }
 
+
+//Função feedback para fechar a porta
 void CloseDoor(){
    LCD_Cmd(LCD_CLEAR);                             //Limpara o display  
    delay_ms(100);
-   LCD_Goto(2,2);
-   LCD_Out("Fecha Porta");
+   LCD_Goto(4,2);
+   LCD_Out("Fecha Porta !!");
 }
+
+void Finish(){
+   LCD_Cmd(LCD_CLEAR);                             //Limpara o display
+   delay_ms(100);
+   LCD_Goto(2,2);
+   LCD_Out("Limp. Finalizada");
+}
+
 
 // Função de constrole do andar das lâmpadas ==========================================
 void Lamps(){                                      
-   unsigned int8 speed_ = 2000;                    //Velocidade dos motores
-   
+   unsigned int8 speed_ = 2000;                    //Velocidade dos motores   
    for(;;){                                        //Função para mover as lampadas
       if(input(pin_B7)){                           //Teste para saber se está no final. Se não estiver ela irá para o ponto inicial         
-         for(int i=0; i<3; i++){                   //irá para o meio da pagina para começar a esterilização            
+         for(int i=0; i<3; i++){                   //irá para o meio da pagina para começar a esterilização                         
             output_f(0b00000101);
             delay_ms(speed_);
             output_f(0b00000110);
             delay_ms(speed_);
-            output_f(0b00010010);
+            output_f(0b00001010);
             delay_ms(speed_);
-            output_f(0b00010001);
+            output_f(0b00001001);
             delay_ms(speed_);        
          }
          delay_ms(2000);                         //Tempo de espera de 40 segundos para esterelização  
-         for(;;){                                //Função que retornará as lampadas para o estágio inicial            
+         for(;;){                                //Função que retornará as lampadas para o estágio inicial             
             output_f(0b00000110);
             delay_ms(speed_);
             if(input(pin_B7)) break;
             output_f(0b00000101);
             delay_ms(speed_);
             if(input(pin_B7)) break;
-            output_f(0b00010001);
+            output_f(0b00001001);
             delay_ms(speed_);
             if(input(pin_B7)) break;
-            output_f(0b00010010);
+            output_f(0b0001010);
             delay_ms(speed_);
             if(input(pin_B7)) break;
          }   
@@ -91,10 +76,10 @@ void Lamps(){
             output_f(0b00000101);
             delay_ms(speed_);
             if(input(pin_B7)) break;
-            output_f(0b00010001);
+            output_f(0b00001001);
             delay_ms(speed_);
             if(input(pin_B7)) break;
-            output_f(0b00010010);
+            output_f(0b00001010);
             delay_ms(speed_);
             if(input(pin_B7)) break;
          }
@@ -104,13 +89,9 @@ void Lamps(){
 }
 
 //Função que irá passar as páginas ===============================================================
-void PassadorPag(){
+void PassadorPag(){   
    unsigned int8 speed_ = 1000;           //Velocidade dos motores
-   LCD_Cmd(LCD_CLEAR);                             //Limpara o display  
-   delay_ms(100);
-   LCD_Goto(2, 2);  
-   LCD_Out("Passando pagina"); 
-   for(;;){                               //Haste principal irá para a frente até encostar no livro
+      for(;;){                               //Haste principal irá para a frente até encostar no livro
       output_a(0b00000110);
       delay_ms(speed_);
       if(input(pin_B3)) break;            //Teste se encostou no livro

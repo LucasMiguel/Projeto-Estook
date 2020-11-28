@@ -29,6 +29,13 @@ void CloseDoor(){
    LCD_Out("Fecha Porta !!");
 }
 
+void Finish(){
+   LCD_Cmd(LCD_CLEAR);                             //Limpara o display
+   delay_ms(100);
+   LCD_Goto(2,2);
+   LCD_Out("Limp. Finalizada");
+}
+
 // Função de constrole do andar das lâmpadas ==========================================
 void Lamps(){                                      
    unsigned int8 speed_ = 2000;                    //Velocidade dos motores   

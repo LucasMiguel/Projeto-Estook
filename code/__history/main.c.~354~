@@ -32,7 +32,8 @@ void main()
    set_tris_f(0b00000000);
    LCD_Begin(0x4E);
    kbd_init();
-   Start();        
+   Start();     
+   delay_ms(100);
    LCD_Goto(2,2);
    LCD_Out("Qts paginas:");
    LCD_Goto(14,2);
@@ -67,7 +68,6 @@ void main()
             Lamps();
             PassadorPag();
          }
-         Finish();         
       }else{                                               //Teste para as portas fechadas 
             CloseDoor();                                
       }      

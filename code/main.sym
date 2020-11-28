@@ -103,17 +103,18 @@ ROM Allocation:
 0001E8  LCD_Goto
 000230  LCD_Out
 000250  @PSTRINGC_944
-000270  kbd_getc
-00032A  @MUL88
-000376  atoi
-000512  @DIV88
-00053A  @PRINTF_D_944
-0005E6  Lamps
-0006BC  PassadorPag
-0007C2  CloseDoor
-0007E6  @cinit1
-0007E6  MAIN
-000826  @cinit2
+000270  Start
+0002F2  kbd_getc
+0003AC  @MUL88
+0003F8  atoi
+000594  @DIV88
+0005BC  @PRINTF_D_944
+000668  Lamps
+00073E  PassadorPag
+000844  CloseDoor
+000868  MAIN
+000868  @cinit1
+0008A8  @cinit2
 0136  StrtoulGO
 0136  StrtolGO
 
@@ -121,7 +122,7 @@ Project Directory:
     C:\Users\lucas\Documents\Faculdade\2-2020\Projeto interdiciplinar\Programação\Projeto\code\
 
 Project Files:
-    main.c                                                  [27-nov-20 00:18  CRC=3C94D774]
+    main.c                                                  [27-nov-20 20:45  CRC=C5E84F0A]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F6490.h [12-nov-13 14:36  CRC=60BBEF97]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h [31-jul-07 13:24  CRC=4E4534F4]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [14-jul-11 10:13  CRC=23EDEC8F]
@@ -132,7 +133,7 @@ Project Files:
     I2C_LCD.c                                               [22-nov-20 21:15  CRC=CD038333]
     ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\kbd.c [23-set-10 09:09  CRC=8814BCFC]
 
-Source signature=9110B34C
+Source signature=1A642AE2
 
 Units:
     main (main)

@@ -67,7 +67,10 @@ void main()
             Lamps();
             PassadorPag();
          }
-         Finish();         
+         LCD_Cmd(LCD_CLEAR);                             //Limpara o display
+         delay_ms(100);
+         LCD_Goto(2,2);
+         LCD_Out("Limpeza Finalizada!!");
       }else{                                               //Teste para as portas fechadas 
             CloseDoor();                                
       }      
